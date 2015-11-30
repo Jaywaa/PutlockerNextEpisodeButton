@@ -1,4 +1,7 @@
 # Putlocker Next Episode Button
+
+[Find it on the Chrome Web Store here!](https://chrome.google.com/webstore/detail/putlocker-next-episode/npkpimcnjbhjkiccanghhpplfmibalfg)
+
 A Chrome extension that adds a next episode button for the streaming site Putlocker.is. Succesfully navigates to the next season if the final episode is reached.
 
 ## How to install:
