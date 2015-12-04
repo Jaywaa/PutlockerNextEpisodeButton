@@ -45,12 +45,12 @@ function navigate(url1, url2)
 					
 					if (nextEpisode)
 					{
-						document.getElementById("check").innerHTML = "Next episode! S"+formatNum(seNum)+"E"+formatNum(nextEp)+" &#x1F44C;";
+						document.getElementById("check").innerHTML = "Next episode! S"+formatNum(seNum)+"E"+formatNum(nextEp)+" &#x1F44C;<br/><a href='"+endUrl+"' target='_blank'>See all episodes</a>";
 						document.getElementById("check").style.color = "green";
 					}
 					else if (nextSeason)
 					{
-						document.getElementById("check").innerHTML = "Next season! S"+formatNum(nextSe)+"E01 &#x1F44C;";
+						document.getElementById("check").innerHTML = "Next season! S"+formatNum(nextSe)+"E01 &#x1F44C;<br/><a href='"+endUrl+"' target='_blank'>See all episodes</a>";
 						document.getElementById("check").style.color = "green";
 					}
 					else
@@ -89,6 +89,12 @@ function formatNum(num)
 		return "0"+n;
 	return n;
 }
+function gotoPutlocker(target)
+{
+	chrome.tabs.update({
+		url: "http://www.putlocker.is"
+	});
+}
 document.addEventListener('DOMContentLoaded', function() {
 
 	
@@ -96,11 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
   chrome.tabs.getSelected(null, function(tab) {
     var url = tab.url;
 	
-	document.getElementById("check").innerHTML = "Something went wrong &#x1F44E;";
-			document.getElementById("check").style.color = "red";
+	
 			
 	if (url.substring(7,19) == "putlocker.is")
 	{
+		
 		if (url.indexOf("-season-") * url.indexOf("-episode-") >= 0)
 		{
 			
@@ -131,6 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
 			document.getElementById("check").style.color = "green";
 			
 		}
+	}
+	else
+	{
+		document.getElementById("check").innerHTML = "Not putlocker.is &#x1F44E;<br/><a href='http://www.putlocker.is' target='_blank'>Go there now</a>";
+		document.getElementById("check").style.color = "red";
 	}
 
   });
