@@ -2,12 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-
 var endUrl;
 
 var nextEpisode = true;
 var nextSeason = false;
-
 
 var epNum;
 var seNum;
@@ -92,7 +90,7 @@ function formatNum(num)
 function gotoPutlocker(target)
 {
 	chrome.tabs.update({
-		url: "http://www.putlocker.is"
+		url: "http://www.putlockers.ch"
 	});
 }
 document.addEventListener('DOMContentLoaded', function() {
@@ -104,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	
 			
-	if (url.substring(7,19) == "putlocker.is")
+	if (url.substring(7,20) == "putlockers.ch")
 	{
 		
 		if (url.indexOf("-season-") * url.indexOf("-episode-") >= 0)
@@ -140,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	else
 	{
-		document.getElementById("check").innerHTML = "Not putlocker.is &#x1F44E;<br/><a href='http://www.putlocker.is' target='_blank'>Go there now</a>";
+		document.getElementById("check").innerHTML = "Not putlockers.ch &#x1F44E;<br/><a href='http://www.putlockers.ch' target='_blank'>Go there now</a>";
 		document.getElementById("check").style.color = "red";
 	}
 
